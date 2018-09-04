@@ -7,10 +7,15 @@
 
 package com.estudiojj.expedientes.ws.consultaIUE;
 
-public interface ConsultaIUEwsdl extends javax.xml.rpc.Service {
-    public java.lang.String getconsultaIUEwsdlPortAddress();
+import java.net.URL;
 
-    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort() throws javax.xml.rpc.ServiceException;
+import javax.xml.rpc.Service;
+import javax.xml.rpc.ServiceException;
 
-    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException;
+public interface ConsultaIUEwsdl extends Service {
+    public String getconsultaIUEwsdlPortAddress();
+
+    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort() throws ServiceException;
+
+    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort(URL portAddress) throws ServiceException;
 }

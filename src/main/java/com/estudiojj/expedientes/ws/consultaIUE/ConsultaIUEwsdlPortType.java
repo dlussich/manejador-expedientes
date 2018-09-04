@@ -7,12 +7,15 @@
 
 package com.estudiojj.expedientes.ws.consultaIUE;
 
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
 import com.estudiojj.expedientes.models.Resultado;
 
-public interface ConsultaIUEwsdlPortType extends java.rmi.Remote {
+public interface ConsultaIUEwsdlPortType extends Remote {
 
     /**
      * Dada una iue devuelve los datos de la sede
      */
-    public Resultado consultaIUE(java.lang.String iue) throws java.rmi.RemoteException;
+    public Resultado consultaIUE(String iue) throws RemoteException;
 }

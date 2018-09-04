@@ -2,10 +2,12 @@ package com.estudiojj.expedientes.ws.client;
 
 import java.rmi.RemoteException;
 
+import javax.xml.rpc.ServiceException;
+import javax.xml.rpc.Stub;
+
 import com.estudiojj.expedientes.models.Resultado;
 import com.estudiojj.expedientes.ws.consultaIUE.ConsultaIUEwsdlLocator;
 import com.estudiojj.expedientes.ws.consultaIUE.ConsultaIUEwsdlPortType;
-import org.apache.commons.logging.impl.Log4JLogger;
 
 
 public class ConsultaIUEwsdlPortTypeProxy implements ConsultaIUEwsdlPortType {
@@ -28,13 +30,13 @@ public class ConsultaIUEwsdlPortTypeProxy implements ConsultaIUEwsdlPortType {
       consultaIUEwsdlPortType = (new ConsultaIUEwsdlLocator()).getconsultaIUEwsdlPort();
       if (consultaIUEwsdlPortType != null) {
         if (_endpoint != null)
-          ((javax.xml.rpc.Stub)consultaIUEwsdlPortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+          ((Stub)consultaIUEwsdlPortType)._setProperty("service.endpoint.address", _endpoint);
         else
-          _endpoint = (String)((javax.xml.rpc.Stub)consultaIUEwsdlPortType)._getProperty("javax.xml.rpc.service.endpoint.address");
+          _endpoint = (String)((Stub)consultaIUEwsdlPortType)._getProperty("service.endpoint.address");
       }
       
     }
-    catch (javax.xml.rpc.ServiceException serviceException) {}
+    catch (ServiceException serviceException) {}
   }
   
   public String getEndpoint() {
@@ -44,7 +46,7 @@ public class ConsultaIUEwsdlPortTypeProxy implements ConsultaIUEwsdlPortType {
   public void setEndpoint(String endpoint) {
     _endpoint = endpoint;
     if (consultaIUEwsdlPortType != null)
-      ((javax.xml.rpc.Stub)consultaIUEwsdlPortType)._setProperty("javax.xml.rpc.service.endpoint.address", _endpoint);
+      ((Stub)consultaIUEwsdlPortType)._setProperty("service.endpoint.address", _endpoint);
     
   }
   

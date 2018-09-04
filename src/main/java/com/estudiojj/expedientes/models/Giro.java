@@ -7,26 +7,37 @@
 
 package com.estudiojj.expedientes.models;
 
-public class Giro  implements java.io.Serializable {
-    private java.lang.String fecha;
+import java.io.Serializable;
 
-    private java.lang.String tipo;
+import javax.xml.namespace.QName;
 
-    private java.lang.String decreto;
+import org.apache.axis.description.ElementDesc;
+import org.apache.axis.description.TypeDesc;
+import org.apache.axis.encoding.Deserializer;
+import org.apache.axis.encoding.Serializer;
+import org.apache.axis.encoding.ser.BeanDeserializer;
+import org.apache.axis.encoding.ser.BeanSerializer;
 
-    private java.lang.String vencimiento;
+public class Giro  implements Serializable {
+    private String fecha;
 
-    private java.lang.String sede;
+    private String tipo;
+
+    private String decreto;
+
+    private String vencimiento;
+
+    private String sede;
 
     public Giro() {
     }
 
     public Giro(
-           java.lang.String fecha,
-           java.lang.String tipo,
-           java.lang.String decreto,
-           java.lang.String vencimiento,
-           java.lang.String sede) {
+           String fecha,
+           String tipo,
+           String decreto,
+           String vencimiento,
+           String sede) {
            this.fecha = fecha;
            this.tipo = tipo;
            this.decreto = decreto;
@@ -40,7 +51,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @return fecha
      */
-    public java.lang.String getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
@@ -50,7 +61,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @param fecha
      */
-    public void setFecha(java.lang.String fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -60,7 +71,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @return tipo
      */
-    public java.lang.String getTipo() {
+    public String getTipo() {
         return tipo;
     }
 
@@ -70,7 +81,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @param tipo
      */
-    public void setTipo(java.lang.String tipo) {
+    public void setTipo(String tipo) {
         this.tipo = tipo;
     }
 
@@ -80,7 +91,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @return decreto
      */
-    public java.lang.String getDecreto() {
+    public String getDecreto() {
         return decreto;
     }
 
@@ -90,7 +101,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @param decreto
      */
-    public void setDecreto(java.lang.String decreto) {
+    public void setDecreto(String decreto) {
         this.decreto = decreto;
     }
 
@@ -100,7 +111,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @return vencimiento
      */
-    public java.lang.String getVencimiento() {
+    public String getVencimiento() {
         return vencimiento;
     }
 
@@ -110,7 +121,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @param vencimiento
      */
-    public void setVencimiento(java.lang.String vencimiento) {
+    public void setVencimiento(String vencimiento) {
         this.vencimiento = vencimiento;
     }
 
@@ -120,7 +131,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @return sede
      */
-    public java.lang.String getSede() {
+    public String getSede() {
         return sede;
     }
 
@@ -130,7 +141,7 @@ public class Giro  implements java.io.Serializable {
      * 
      * @param sede
      */
-    public void setSede(java.lang.String sede) {
+    public void setSede(String sede) {
         this.sede = sede;
     }
 
@@ -192,39 +203,39 @@ public class Giro  implements java.io.Serializable {
     }
 
     // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Giro.class, true);
+    private static TypeDesc typeDesc =
+        new TypeDesc(Giro.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:consultaIUEwsdl", "giro"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        typeDesc.setXmlType(new QName("urn:consultaIUEwsdl", "giro"));
+        ElementDesc elemField = new ElementDesc();
         elemField.setFieldName("fecha");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "fecha"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "fecha"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("tipo");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "tipo"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "tipo"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("decreto");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "decreto"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "decreto"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("vencimiento");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "vencimiento"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "vencimiento"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("sede");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "sede"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "sede"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
@@ -232,31 +243,31 @@ public class Giro  implements java.io.Serializable {
     /**
      * Return type metadata object
      */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+    public static TypeDesc getTypeDesc() {
         return typeDesc;
     }
 
     /**
      * Get Custom Serializer
      */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
+    public static Serializer getSerializer(
+           String mechType, 
+           Class _javaType,  
+           QName _xmlType) {
         return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
+          new  BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
+    public static Deserializer getDeserializer(
+           String mechType, 
+           Class _javaType,  
+           QName _xmlType) {
         return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
+          new  BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }
     

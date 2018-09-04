@@ -7,61 +7,74 @@
 
 package com.estudiojj.expedientes.ws.consultaIUE;
 
-public class ConsultaIUEwsdlLocator extends org.apache.axis.client.Service implements ConsultaIUEwsdl {
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.rmi.Remote;
+import java.util.HashSet;
+import java.util.Iterator;
+
+import javax.xml.namespace.QName;
+import javax.xml.rpc.ServiceException;
+
+import org.apache.axis.AxisFault;
+import org.apache.axis.EngineConfiguration;
+import org.apache.axis.client.Service;
+
+public class ConsultaIUEwsdlLocator extends Service implements ConsultaIUEwsdl {
 
     public ConsultaIUEwsdlLocator() {
     }
 
 
-    public ConsultaIUEwsdlLocator(org.apache.axis.EngineConfiguration config) {
+    public ConsultaIUEwsdlLocator(EngineConfiguration config) {
         super(config);
     }
 
-    public ConsultaIUEwsdlLocator(java.lang.String wsdlLoc, javax.xml.namespace.QName sName) throws javax.xml.rpc.ServiceException {
+    public ConsultaIUEwsdlLocator(String wsdlLoc, QName sName) throws ServiceException {
         super(wsdlLoc, sName);
     }
 
     // Use to get a proxy class for consultaIUEwsdlPort
-    private java.lang.String consultaIUEwsdlPort_address = "http://expedientes.poderjudicial.gub.uy/wsConsultaIUE.php";
+    private String consultaIUEwsdlPort_address = "http://expedientes.poderjudicial.gub.uy/wsConsultaIUE.php";
 
-    public java.lang.String getconsultaIUEwsdlPortAddress() {
+    public String getconsultaIUEwsdlPortAddress() {
         return consultaIUEwsdlPort_address;
     }
 
     // The WSDD service name defaults to the port name.
-    private java.lang.String consultaIUEwsdlPortWSDDServiceName = "consultaIUEwsdlPort";
+    private String consultaIUEwsdlPortWSDDServiceName = "consultaIUEwsdlPort";
 
-    public java.lang.String getconsultaIUEwsdlPortWSDDServiceName() {
+    public String getconsultaIUEwsdlPortWSDDServiceName() {
         return consultaIUEwsdlPortWSDDServiceName;
     }
 
-    public void setconsultaIUEwsdlPortWSDDServiceName(java.lang.String name) {
+    public void setconsultaIUEwsdlPortWSDDServiceName(String name) {
         consultaIUEwsdlPortWSDDServiceName = name;
     }
 
-    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort() throws javax.xml.rpc.ServiceException {
-       java.net.URL endpoint;
+    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort() throws ServiceException {
+       URL endpoint;
         try {
-            endpoint = new java.net.URL(consultaIUEwsdlPort_address);
+            endpoint = new URL(consultaIUEwsdlPort_address);
         }
-        catch (java.net.MalformedURLException e) {
-            throw new javax.xml.rpc.ServiceException(e);
+        catch (MalformedURLException e) {
+            throw new ServiceException(e);
         }
         return getconsultaIUEwsdlPort(endpoint);
     }
 
-    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort(java.net.URL portAddress) throws javax.xml.rpc.ServiceException {
+    public ConsultaIUEwsdlPortType getconsultaIUEwsdlPort(URL portAddress) throws ServiceException {
         try {
             ConsultaIUEwsdlBindingStub _stub = new ConsultaIUEwsdlBindingStub(portAddress, this);
             _stub.setPortName(getconsultaIUEwsdlPortWSDDServiceName());
             return _stub;
         }
-        catch (org.apache.axis.AxisFault e) {
+        catch (AxisFault e) {
             return null;
         }
     }
 
-    public void setconsultaIUEwsdlPortEndpointAddress(java.lang.String address) {
+    public void setconsultaIUEwsdlPortEndpointAddress(String address) {
         consultaIUEwsdlPort_address = address;
     }
 
@@ -70,18 +83,18 @@ public class ConsultaIUEwsdlLocator extends org.apache.axis.client.Service imple
      * If this service has no port for the given interface,
      * then ServiceException is thrown.
      */
-    public java.rmi.Remote getPort(Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+    public Remote getPort(Class serviceEndpointInterface) throws ServiceException {
         try {
             if (ConsultaIUEwsdlPortType.class.isAssignableFrom(serviceEndpointInterface)) {
-                ConsultaIUEwsdlBindingStub _stub = new ConsultaIUEwsdlBindingStub(new java.net.URL(consultaIUEwsdlPort_address), this);
+                ConsultaIUEwsdlBindingStub _stub = new ConsultaIUEwsdlBindingStub(new URL(consultaIUEwsdlPort_address), this);
                 _stub.setPortName(getconsultaIUEwsdlPortWSDDServiceName());
                 return _stub;
             }
         }
-        catch (java.lang.Throwable t) {
-            throw new javax.xml.rpc.ServiceException(t);
+        catch (Throwable t) {
+            throw new ServiceException(t);
         }
-        throw new javax.xml.rpc.ServiceException("There is no stub implementation for the interface:  " + (serviceEndpointInterface == null ? "null" : serviceEndpointInterface.getName()));
+        throw new ServiceException("There is no stub implementation for the interface:  " + (serviceEndpointInterface == null ? "null" : serviceEndpointInterface.getName()));
     }
 
     /**
@@ -89,31 +102,31 @@ public class ConsultaIUEwsdlLocator extends org.apache.axis.client.Service imple
      * If this service has no port for the given interface,
      * then ServiceException is thrown.
      */
-    public java.rmi.Remote getPort(javax.xml.namespace.QName portName, Class serviceEndpointInterface) throws javax.xml.rpc.ServiceException {
+    public Remote getPort(QName portName, Class serviceEndpointInterface) throws ServiceException {
         if (portName == null) {
             return getPort(serviceEndpointInterface);
         }
-        java.lang.String inputPortName = portName.getLocalPart();
+        String inputPortName = portName.getLocalPart();
         if ("consultaIUEwsdlPort".equals(inputPortName)) {
             return getconsultaIUEwsdlPort();
         }
         else  {
-            java.rmi.Remote _stub = getPort(serviceEndpointInterface);
+            Remote _stub = getPort(serviceEndpointInterface);
             ((org.apache.axis.client.Stub) _stub).setPortName(portName);
             return _stub;
         }
     }
 
-    public javax.xml.namespace.QName getServiceName() {
-        return new javax.xml.namespace.QName("urn:consultaIUEwsdl", "consultaIUEwsdl");
+    public QName getServiceName() {
+        return new QName("urn:consultaIUEwsdl", "consultaIUEwsdl");
     }
 
-    private java.util.HashSet ports = null;
+    private HashSet ports = null;
 
-    public java.util.Iterator getPorts() {
+    public Iterator getPorts() {
         if (ports == null) {
-            ports = new java.util.HashSet();
-            ports.add(new javax.xml.namespace.QName("urn:consultaIUEwsdl", "consultaIUEwsdlPort"));
+            ports = new HashSet();
+            ports.add(new QName("urn:consultaIUEwsdl", "consultaIUEwsdlPort"));
         }
         return ports.iterator();
     }
@@ -121,21 +134,21 @@ public class ConsultaIUEwsdlLocator extends org.apache.axis.client.Service imple
     /**
     * Set the endpoint address for the specified port name.
     */
-    public void setEndpointAddress(java.lang.String portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
+    public void setEndpointAddress(String portName, String address) throws ServiceException {
         
 if ("consultaIUEwsdlPort".equals(portName)) {
             setconsultaIUEwsdlPortEndpointAddress(address);
         }
         else 
 { // Unknown Port Name
-            throw new javax.xml.rpc.ServiceException(" Cannot set Endpoint Address for Unknown Port" + portName);
+            throw new ServiceException(" Cannot set Endpoint Address for Unknown Port" + portName);
         }
     }
 
     /**
     * Set the endpoint address for the specified port name.
     */
-    public void setEndpointAddress(javax.xml.namespace.QName portName, java.lang.String address) throws javax.xml.rpc.ServiceException {
+    public void setEndpointAddress(QName portName, String address) throws ServiceException {
         setEndpointAddress(portName.getLocalPart(), address);
     }
 

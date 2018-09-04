@@ -7,20 +7,30 @@
 
 package com.estudiojj.expedientes.models;
 
+import java.io.Serializable;
+import java.lang.reflect.Array;
 
+import javax.xml.namespace.QName;
 
-public class Resultado  implements java.io.Serializable {
-    private java.lang.String estado;
+import org.apache.axis.description.ElementDesc;
+import org.apache.axis.description.TypeDesc;
+import org.apache.axis.encoding.Deserializer;
+import org.apache.axis.encoding.Serializer;
+import org.apache.axis.encoding.ser.BeanDeserializer;
+import org.apache.axis.encoding.ser.BeanSerializer;
 
-    private java.lang.String origen;
+public class Resultado  implements Serializable {
+    private String estado;
 
-    private java.lang.String expediente;
+    private String origen;
 
-    private java.lang.String caratula;
+    private String expediente;
 
-    private java.lang.String abogado_actor;
+    private String caratula;
 
-    private java.lang.String abogado_demandante;
+    private String abogado_actor;
+
+    private String abogado_demandante;
 
     private Giro[] movimientos;
 
@@ -28,12 +38,12 @@ public class Resultado  implements java.io.Serializable {
     }
 
     public Resultado(
-           java.lang.String estado,
-           java.lang.String origen,
-           java.lang.String expediente,
-           java.lang.String caratula,
-           java.lang.String abogado_actor,
-           java.lang.String abogado_demandante,
+           String estado,
+           String origen,
+           String expediente,
+           String caratula,
+           String abogado_actor,
+           String abogado_demandante,
            Giro[] movimientos) {
            this.estado = estado;
            this.origen = origen;
@@ -50,7 +60,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @return estado
      */
-    public java.lang.String getEstado() {
+    public String getEstado() {
         return estado;
     }
 
@@ -60,7 +70,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @param estado
      */
-    public void setEstado(java.lang.String estado) {
+    public void setEstado(String estado) {
         this.estado = estado;
     }
 
@@ -70,7 +80,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @return origen
      */
-    public java.lang.String getOrigen() {
+    public String getOrigen() {
         return origen;
     }
 
@@ -80,7 +90,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @param origen
      */
-    public void setOrigen(java.lang.String origen) {
+    public void setOrigen(String origen) {
         this.origen = origen;
     }
 
@@ -90,7 +100,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @return expediente
      */
-    public java.lang.String getExpediente() {
+    public String getExpediente() {
         return expediente;
     }
 
@@ -100,7 +110,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @param expediente
      */
-    public void setExpediente(java.lang.String expediente) {
+    public void setExpediente(String expediente) {
         this.expediente = expediente;
     }
 
@@ -110,7 +120,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @return caratula
      */
-    public java.lang.String getCaratula() {
+    public String getCaratula() {
         return caratula;
     }
 
@@ -120,7 +130,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @param caratula
      */
-    public void setCaratula(java.lang.String caratula) {
+    public void setCaratula(String caratula) {
         this.caratula = caratula;
     }
 
@@ -130,7 +140,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @return abogado_actor
      */
-    public java.lang.String getAbogado_actor() {
+    public String getAbogado_actor() {
         return abogado_actor;
     }
 
@@ -140,7 +150,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @param abogado_actor
      */
-    public void setAbogado_actor(java.lang.String abogado_actor) {
+    public void setAbogado_actor(String abogado_actor) {
         this.abogado_actor = abogado_actor;
     }
 
@@ -150,7 +160,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @return abogado_demandante
      */
-    public java.lang.String getAbogado_demandante() {
+    public String getAbogado_demandante() {
         return abogado_demandante;
     }
 
@@ -160,7 +170,7 @@ public class Resultado  implements java.io.Serializable {
      * 
      * @param abogado_demandante
      */
-    public void setAbogado_demandante(java.lang.String abogado_demandante) {
+    public void setAbogado_demandante(String abogado_demandante) {
         this.abogado_demandante = abogado_demandante;
     }
 
@@ -184,8 +194,8 @@ public class Resultado  implements java.io.Serializable {
         this.movimientos = movimientos;
     }
 
-    private java.lang.Object __equalsCalc = null;
-    public synchronized boolean equals(java.lang.Object obj) {
+    private Object __equalsCalc = null;
+    public synchronized boolean equals(Object obj) {
         if (!(obj instanceof Resultado)) return false;
         Resultado other = (Resultado) obj;
         if (obj == null) return false;
@@ -248,9 +258,9 @@ public class Resultado  implements java.io.Serializable {
         }
         if (getMovimientos() != null) {
             for (int i=0;
-                 i<java.lang.reflect.Array.getLength(getMovimientos());
+                 i<Array.getLength(getMovimientos());
                  i++) {
-                java.lang.Object obj = java.lang.reflect.Array.get(getMovimientos(), i);
+                Object obj = Array.get(getMovimientos(), i);
                 if (obj != null &&
                     !obj.getClass().isArray()) {
                     _hashCode += obj.hashCode();
@@ -262,51 +272,51 @@ public class Resultado  implements java.io.Serializable {
     }
 
     // Type metadata
-    private static org.apache.axis.description.TypeDesc typeDesc =
-        new org.apache.axis.description.TypeDesc(Resultado.class, true);
+    private static TypeDesc typeDesc =
+        new TypeDesc(Resultado.class, true);
 
     static {
-        typeDesc.setXmlType(new javax.xml.namespace.QName("urn:consultaIUEwsdl", "resultado"));
-        org.apache.axis.description.ElementDesc elemField = new org.apache.axis.description.ElementDesc();
+        typeDesc.setXmlType(new QName("urn:consultaIUEwsdl", "resultado"));
+        ElementDesc elemField = new ElementDesc();
         elemField.setFieldName("estado");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "estado"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "estado"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("origen");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "origen"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "origen"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("expediente");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "expediente"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "expediente"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("caratula");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "caratula"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "caratula"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("abogado_actor");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "abogado_actor"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "abogado_actor"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("abogado_demandante");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "abogado_demandante"));
-        elemField.setXmlType(new javax.xml.namespace.QName("http://www.w3.org/2001/XMLSchema", "string"));
+        elemField.setXmlName(new QName("", "abogado_demandante"));
+        elemField.setXmlType(new QName("http://www.w3.org/2001/XMLSchema", "string"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
-        elemField = new org.apache.axis.description.ElementDesc();
+        elemField = new ElementDesc();
         elemField.setFieldName("movimientos");
-        elemField.setXmlName(new javax.xml.namespace.QName("", "movimientos"));
-        elemField.setXmlType(new javax.xml.namespace.QName("urn:consultaIUEwsdl", "giro"));
+        elemField.setXmlName(new QName("", "movimientos"));
+        elemField.setXmlType(new QName("urn:consultaIUEwsdl", "giro"));
         elemField.setNillable(false);
         typeDesc.addFieldDesc(elemField);
     }
@@ -314,31 +324,31 @@ public class Resultado  implements java.io.Serializable {
     /**
      * Return type metadata object
      */
-    public static org.apache.axis.description.TypeDesc getTypeDesc() {
+    public static TypeDesc getTypeDesc() {
         return typeDesc;
     }
 
     /**
      * Get Custom Serializer
      */
-    public static org.apache.axis.encoding.Serializer getSerializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
+    public static Serializer getSerializer(
+           String mechType, 
+           Class _javaType,  
+           QName _xmlType) {
         return 
-          new  org.apache.axis.encoding.ser.BeanSerializer(
+          new  BeanSerializer(
             _javaType, _xmlType, typeDesc);
     }
 
     /**
      * Get Custom Deserializer
      */
-    public static org.apache.axis.encoding.Deserializer getDeserializer(
-           java.lang.String mechType, 
-           java.lang.Class _javaType,  
-           javax.xml.namespace.QName _xmlType) {
+    public static Deserializer getDeserializer(
+           String mechType, 
+           Class _javaType,  
+           QName _xmlType) {
         return 
-          new  org.apache.axis.encoding.ser.BeanDeserializer(
+          new  BeanDeserializer(
             _javaType, _xmlType, typeDesc);
     }
     
